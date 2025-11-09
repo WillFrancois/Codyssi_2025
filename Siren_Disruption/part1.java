@@ -34,7 +34,7 @@ public class part1 {
             // Get track value
             int test_idx = Integer.parseInt(file_parts[2]);
             int result = tracks.get(test_idx-1);
-            System.out.println(result);
+            System.out.println("Part 1: " + result);
 
         } catch (IOException e) {
             throw new RuntimeException(e);
