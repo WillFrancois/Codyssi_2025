@@ -27,4 +27,5 @@ int main() {
 
   std::cout << part1(grid) << std::endl;
   std::cout << part2(grid) << std::endl;
+  std::cout << part3(grid) << std::endl;
 }
