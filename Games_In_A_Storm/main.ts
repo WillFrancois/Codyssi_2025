@@ -2,6 +2,77 @@ import { Part1 } from "./parts/part1.ts";
 import { Part2 } from "./parts/part2.ts";
 import { FileHandle, open } from "node:fs/promises";
 
+export const revVal = [
+  "0",
+  "1",
+  "2",
+  "3",
+  "4",
+  "5",
+  "6",
+  "7",
+  "8",
+  "9",
+  "A",
+  "B",
+  "C",
+  "D",
+  "E",
+  "F",
+  "G",
+  "H",
+  "I",
+  "J",
+  "K",
+  "L",
+  "M",
+  "N",
+  "O",
+  "P",
+  "Q",
+  "R",
+  "S",
+  "T",
+  "U",
+  "V",
+  "W",
+  "X",
+  "Y",
+  "Z",
+  "a",
+  "b",
+  "c",
+  "d",
+  "e",
+  "f",
+  "g",
+  "h",
+  "i",
+  "j",
+  "k",
+  "l",
+  "m",
+  "n",
+  "o",
+  "p",
+  "q",
+  "r",
+  "s",
+  "t",
+  "u",
+  "v",
+  "w",
+  "x",
+  "y",
+  "z",
+  "!",
+  "@",
+  "#",
+  "$",
+  "%",
+  "^",
+];
+
 export enum FileValues {
   "A" = 10,
   "B",
@@ -55,12 +126,18 @@ export enum FileValues {
   "x",
   "y",
   "z",
+  "!",
+  "@",
+  "#",
+  "$",
+  "%",
+  "^",
 }
 
-let filehandle: FileHandle = await open("input.txt", "r");
-
 async function main(): Promise<void> {
+  let filehandle: FileHandle = await open("input.txt", "r");
   console.log(await Part1(filehandle));
+  filehandle = await open("input.txt", "r");
   console.log(await Part2(filehandle));
 }
 
