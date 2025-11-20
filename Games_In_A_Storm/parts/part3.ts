@@ -5,11 +5,12 @@ export async function Part3(filehandle: FileHandle): Promise<number> {
   let sum: number = 0;
 
   for await (const line of filehandle.readLines()) {
-    let [num, base]: string[] = line.split(" ");
+    const [num, base]: string[] = line.split(" ");
     let curr: number = 0;
 
     for (let i: number = 0; i < num.length; i++) {
       if (isNaN(+num[i])) {
+        // @ts-ignore FileValues will always reference a number. Method of indexing is not recommended in TS.
         curr += FileValues[num[i]] * Math.pow(+base, num.length - i - 1);
       } else {
         curr += +num[i] * Math.pow(+base, num.length - i - 1);
