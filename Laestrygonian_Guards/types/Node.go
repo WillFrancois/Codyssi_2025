@@ -2,7 +2,7 @@ package types
 
 type Node struct {
 	Name string
-	Connections []*Node
+	Connections []string
 	Distance []int
 	Visited bool
 }

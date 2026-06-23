@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"Laestrygonian_Guards/types"
+	"Laestrygonian_Guards/parts"
 	"os"
 	"strconv"
 	"strings"
@@ -23,7 +24,7 @@ func main() {
 	f.Read(ba)
 	input := string(ba)
 
-	node_map := make(map[string]types.Node, strings.Count(input, "\n"))
+	node_map := make(map[string]*types.Node, strings.Count(input, "\n"))
 	for line := range strings.Lines(input) {
 		node_name := line[0:3]
 		node_connection := line[7:10]
@@ -32,20 +33,20 @@ func main() {
 
 		_, ok := node_map[node_name]
 		if !ok {
-			node_map[node_name] = types.Node{Name: node_name}
+			node_map[node_name] = &types.Node{Name: node_name}
 		}
 		_, ok = node_map[node_connection]
 		if !ok {
-			node_map[node_connection] = types.Node{Name: node_name}
+			node_map[node_connection] = &types.Node{Name: node_connection}
 		}
 
 		a := node_map[node_name]
-		b := node_map[node_connection]
 
-		a.Connections = append(a.Connections, &b)
+		a.Connections = append(a.Connections, node_map[node_connection].Name)
 		a.Distance = append(a.Distance, path_value)
 		node_map[node_name] = a
 	}
 
 	fmt.Println(node_map)
+	fmt.Println(parts.Part1(node_map))
 }
