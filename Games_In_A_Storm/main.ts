@@ -1,5 +1,6 @@
 import { Part1 } from "./parts/part1.ts";
 import { Part2 } from "./parts/part2.ts";
+import { Part3 } from "./parts/part3.ts";
 import { FileHandle, open } from "node:fs/promises";
 
 export const revVal = [
@@ -139,6 +140,8 @@ async function main(): Promise<void> {
   console.log(await Part1(filehandle));
   filehandle = await open("input.txt", "r");
   console.log(await Part2(filehandle));
+  filehandle = await open("input.txt", "r");
+  console.log(await Part3(filehandle));
 }
 
 main();
