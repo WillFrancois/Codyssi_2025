@@ -49,4 +49,5 @@ func main() {
 
 	fmt.Println(node_map)
 	fmt.Println(parts.Part1(node_map))
+	fmt.Println(parts.Part2(node_map))
 }
